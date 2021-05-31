@@ -9,12 +9,16 @@ export class Login extends Component {
     }
   }
 
-  changeUsername(e) {
-    this.setState({ username: e.target.value })
-  }
+  // todo: para o que serve o bind??
+  // se usar Arrow function, não precisa utilizar o BIND
+  // changePassword(e) {
+  //   this.setState({ password: e.target.value })
+  // }
 
-  changePassword(e) {
-    this.setState({ password: e.target.value })
+  changeText = (e) => {
+    let name = e.target.name;
+    let value = e.target.value
+    this.setState({ [name]: value })
   }
 
   onSubmit(e) {
@@ -41,7 +45,7 @@ export class Login extends Component {
                     className="form-control"
                     placeholder="username"
                     value={this.state.username}
-                    onChange={this.changeUsername.bind(this)}
+                    onChange={this.changeText}
                   />
                 </div>
                 <div className="form-group">
@@ -51,7 +55,7 @@ export class Login extends Component {
                     className="form-control"
                     placeholder="password"
                     value={this.state.password}
-                    onChange={this.changePassword.bind(this)}
+                    onChange={this.changeText}
                   />
                 </div>
                 <button
