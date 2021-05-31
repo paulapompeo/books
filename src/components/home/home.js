@@ -5,6 +5,8 @@ import Book3 from '../../images/book3.jpg'
 import Book4 from '../../images/book4.jpg'
 import '../../css/home/home.css'
 
+//book1 esta menor que as outras
+
 class Home extends Component {
   render() {
     return (
@@ -12,7 +14,7 @@ class Home extends Component {
         <div id="home-top" className="carousel slide" data-ride="carousel">
           <div className="carousel-inner">
             <div className="carousel-item active">
-              <img className="d-block w-100" src={Book1} alt="First slide" />
+              <img className="d-block w-100" src={Book1} alt="First slide" /> 
             </div>
             <div className="carousel-item">
               <img className="d-block w-100" src={Book2} alt="Second slide" />
