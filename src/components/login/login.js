@@ -1,12 +1,18 @@
 import React, { Component } from 'react'
+import LoginService from './loginService'
 
 export class Login extends Component {
   constructor(props) {
     super(props)
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      showSuccess: false,
+      showError: false,
+      errorMessage: '',
+      successMessage: '',
     }
+    this.loginService = new LoginService() //inicializando
   }
 
   // todo: para o que serve o bind??
@@ -26,11 +32,57 @@ export class Login extends Component {
   }
 
   login(e) {
+    this.loginService.login(this.state.username, this.state.password, this.loginSuccess, this.loginError)
     console.log('Login con username: ', this.state.username)
     console.log('Login con password: ', this.state.password)
   }
 
+  loginSuccess = (dataResult) => {
+    this.setState({
+      showSuccess: true,
+      successMessage: `Login effettuato con successo il tuo token è: ${dataResult.token}`,
+      showError: false,
+      errorMessage: '',
+    })
+  }
+
+  loginError = (errorData) => {
+    this.setState({
+      showSuccess: false,
+      successMessage: '',
+      showError: true,
+      errorMessage: `Login fallito per ${errorData.error}`,
+    })
+  }
+
+  getSucessMessage = () => {
+    if(this.state.showSuccess){
+      return(
+        <div style={{color: 'green'}}>{this.state.successMessage}</div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+
+  getErrorMessage = () => {
+    if(this.state.errorMessage){
+      return(
+        <div style={{color: 'red'}}>{this.state.errorMessage}</div>
+      )
+    } else {
+      return (
+        <div></div>
+      )
+    }
+  }
+
   render() {
+    var successMessage = this.getSucessMessage()
+    var errorMessage = this.getErrorMessage()
+
     return (
       <div style={{ marginTop: "100px", minHeight: "70vh" }}>
         <div className="container">
@@ -65,8 +117,8 @@ export class Login extends Component {
                 >
                   Invio
                 </button>
-                {/* {successMessage} */}
-                {/* {errorMessage} */}
+                {successMessage}
+                {errorMessage}
               </form>
             </div>
           </div>
