@@ -12,14 +12,8 @@ export class Login extends Component {
       errorMessage: '',
       successMessage: '',
     }
-    this.loginService = new LoginService() //inicializando
+    this.loginService = new LoginService()
   }
-
-  // todo: para o que serve o bind??
-  // se usar Arrow function, não precisa utilizar o BIND
-  // changePassword(e) {
-  //   this.setState({ password: e.target.value })
-  // }
 
   changeText = (e) => {
     let name = e.target.name;
@@ -89,7 +83,6 @@ export class Login extends Component {
           <div className="row">
             <div className="col-6 mr-auto ml-auto">
               <form onSubmit={this.onSubmit.bind(this)}>
-                {/* todo: para o que serve o bind?? */}
                 <div className="form-group">
                   <input
                     type="text"

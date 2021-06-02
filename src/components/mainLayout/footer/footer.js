@@ -9,7 +9,6 @@ class Footer extends Component {
             <div className="row">
               <div className="col-lg-8 col-md-10 mx-auto">
                 <ul className="list-inline text-center">
-
                   <li className="list-inline-item">
                     <a href="mailto:your-email@example.com">
                       <span className="fa-stack fa-lg">
@@ -18,8 +17,6 @@ class Footer extends Component {
                       </span>
                     </a>
                   </li>
-
-
                   <li className="list-inline-item">
                     <a href="https://twitter.com/SBootstrap">
                       <span className="fa-stack fa-lg">
@@ -28,8 +25,6 @@ class Footer extends Component {
                       </span>
                     </a>
                   </li>
-
-
                   <li className="list-inline-item">
                     <a href="https://www.facebook.com/StartBootstrap">
                       <span className="fa-stack fa-lg">
@@ -38,9 +33,6 @@ class Footer extends Component {
                       </span>
                     </a>
                   </li>
-
-
-
                   <li className="list-inline-item">
                     <a href="https://github.com/BlackrockDigital">
                       <span className="fa-stack fa-lg">
@@ -49,14 +41,12 @@ class Footer extends Component {
                       </span>
                     </a>
                   </li>
-
                 </ul>
                 <p className="copyright text-muted">Copyright &copy; BookApp 2021</p>
               </div>
             </div>
           </div>
         </footer>
-
       </div>
     )
   }

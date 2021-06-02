@@ -15,8 +15,6 @@ export class Booklist extends Component {
     }
   }
 
-
-
   fetchBooks = () => {
     const API = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}`
     fetch(API).then(r => r.json()).then(r => {
@@ -26,7 +24,7 @@ export class Booklist extends Component {
       .catch((error) => {
         console.log(`Fetch error: ${error}`)
       })
-  } //.then() como usa?
+  }
 
   getModal = (value) => {
     this.setState({
@@ -129,7 +127,6 @@ export class Booklist extends Component {
                       </h2>
                     </figcaption>
                   </figure>
-
                 )
               })
             }

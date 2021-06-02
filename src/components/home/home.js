@@ -5,8 +5,6 @@ import Book3 from '../../images/book3.jpg'
 import Book4 from '../../images/book4.jpg'
 import '../../css/home/home.css'
 
-//book1 esta menor que as outras
-
 class Home extends Component {
   render() {
     return (
