@@ -10,9 +10,12 @@ export class Booklist extends Component {
     this.state = {
       searchTerm: 'react',
       books: { items: [] },
-      visible: {display: 'block'}
+      visible: {display: 'block'},
+      showModal: 0
     }
   }
+
+
 
   fetchBooks = () => {
     const API = `https://www.googleapis.com/books/v1/volumes?q=${this.state.searchTerm}`
@@ -24,6 +27,18 @@ export class Booklist extends Component {
         console.log(`Fetch error: ${error}`)
       })
   } //.then() como usa?
+
+  getModal = (value) => {
+    this.setState({
+      showModal: value
+    })
+  }
+
+  hideModal = () => {
+    this.setState({
+      showModal: 0,
+    })
+  }
 
   onSubmitHandler = (e) => {
     e.preventDefault();
@@ -75,7 +90,13 @@ export class Booklist extends Component {
                 const background =`http://books.google.com/books/content?id=${book.id}&printsec=frontcover&img=1&zoom=1&source=gbs_api`;
                 return (
                   <figure key={index} className='details-open'>
-                    {/* <Modal show={this.state.showModal === book.id} onHide={() => this.hideModal(book.id)} title={book.volumeInfo.title} descr={book.volumeInfo.description} pag={book.volumeInfo.pageCount} /> */}
+                    <Modal 
+                      show={this.state.showModal === book.id}
+                      onHide={() => this.hideModal(book.id)}
+                      title={book.volumeInfo.title}
+                      descr={book.volumeInfo.description}
+                      pag={book.volumeInfo.pageCount}
+                    />
                     <div className="perspective">
                       <div className="book">
                         <div className="cover">
@@ -85,7 +106,13 @@ export class Booklist extends Component {
                       </div>
                     </div>
                     <div className="buttons">
-                      <button onClick={() => this.getModal(book.id)} style={{ padding: '3px', borderRadius: '5px' }} className='btn btn-warning btn-sm'>Dettagli</button>
+                      <button 
+                        onClick={() => this.getModal(book.id)}
+                        style={{ padding: '3px', borderRadius: '5px' }}
+                        className='btn btn-warning btn-sm'
+                      >
+                        Dettagli
+                      </button>
                       <a href={book.volumeInfo.infoLink}>Preview</a>
                     </div>
                     <figcaption>
