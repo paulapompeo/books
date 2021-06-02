@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import Modal from './modal'
+
 import '../../css/booklist/booklist.css'
 
 export class Booklist extends Component {
